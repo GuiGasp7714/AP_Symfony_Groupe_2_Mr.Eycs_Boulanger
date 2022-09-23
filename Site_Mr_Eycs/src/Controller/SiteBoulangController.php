@@ -17,4 +17,14 @@ class SiteBoulangController extends AbstractController
             'controller_name' => 'SiteBoulangController',
         ]);
     }
+
+    /**
+     * @Route("/connexion", name="connexion")
+     */
+    public function Connexion(): Response
+    {
+        return $this->render('site_boulang/Connexion.html.twig', [
+            'controller_name' => 'SiteBoulangController',
+        ]);
+    }
 }
