@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Produits;
+use App\Repository\ProduitRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 
 class SiteBoulangController extends AbstractController
 {
@@ -33,6 +36,8 @@ class SiteBoulangController extends AbstractController
      */
     public function produits(): Response
     {
+        $repository = $doctrine->getRepository(Produit::class);
+        $LesProds = $repository->fechAll();
         return $this->render('site_boulang/commandes/produits.html.twig', [
             'controller_name' => 'SiteBoulangController',
         ]);
