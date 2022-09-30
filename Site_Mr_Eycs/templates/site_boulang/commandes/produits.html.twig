@@ -17,4 +17,29 @@
         <li>Your template at <code><a href="{{ 'C:/Users/guillotg/Documents/AP_Symfony_Groupe_2_Mr.Eycs_Boulanger/Site_Mr_Eycs/templates/site_boulang/index.html.twig'|file_link(0) }}">templates/site_boulang/index.html.twig</a></code></li>
     </ul>
 </div>
+<div id='scroll'>
+{% for prod in LesProds %}
+    <products>
+        <nom>
+            nom
+        </nom>
+        <cover>
+            <img src="game1.jpg"/>
+        </cover>
+        <price>
+        nice nice nice
+        </price>
+        <count>
+            <img src="logoPlus.jpg"/>
+            N
+            <img src="logoMoins.jpg"/>
+        </count>
+        <div>
+            <button class='btn' Type='button'>Ajouter</button>
+        </div>
+    </products>
+{% endfor %}
+</div>
+
+
 {% endblock %}
