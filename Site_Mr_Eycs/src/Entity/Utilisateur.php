@@ -54,6 +54,16 @@ class Utilisateur
      */
     private $commande;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Nom;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $prenom;
+
 
     public function __construct()
     {
@@ -202,6 +212,30 @@ class Utilisateur
                 $commande->setUtilisateur(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->Nom;
+    }
+
+    public function setNom(string $Nom): self
+    {
+        $this->Nom = $Nom;
+
+        return $this;
+    }
+
+    public function getPrenom(): ?string
+    {
+        return $this->prenom;
+    }
+
+    public function setPrenom(string $prenom): self
+    {
+        $this->prenom = $prenom;
 
         return $this;
     }
