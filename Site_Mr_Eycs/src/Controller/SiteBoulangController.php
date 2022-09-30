@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Form\UtilisateurType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,8 +24,10 @@ class SiteBoulangController extends AbstractController
      */
     public function Connexion(): Response
     {
+        $form = $this->createForm(UtilisateurType::class);
         return $this->render('site_boulang/Connexion.html.twig', [
             'controller_name' => 'SiteBoulangController',
+            'form' => $form->createView()
         ]);
     }
 }

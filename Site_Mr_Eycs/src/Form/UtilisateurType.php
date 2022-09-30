@@ -12,11 +12,13 @@ class UtilisateurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('nom')
+            ->add('prenom')
+            ->add('pseudo')
             ->add('mdp')
-            ->add('typeUtilisateur')
+            ->add('Verifmdp')
             ->add('adresseMail')
-            ->add('telephone')
-        ;
+            ->add('telephone');
     }
 
     public function configureOptions(OptionsResolver $resolver): void
