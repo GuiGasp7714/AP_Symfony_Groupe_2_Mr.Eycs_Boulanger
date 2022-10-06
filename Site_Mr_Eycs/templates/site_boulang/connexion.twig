@@ -11,7 +11,10 @@
 <div class="plop">
  <h1>Connexion</h1>
 
- {{ form(form) }}
+ {{ form_start(form) }}
+        {{form(form)}}
+        <button type="submit">Enregistrer</button>
+    {{ form_end(form) }}
 </div>
 
 {% endblock %}
