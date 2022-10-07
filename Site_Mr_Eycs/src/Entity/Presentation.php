@@ -20,21 +20,21 @@ class Presentation
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $description;
+    private $presentation;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getDescription(): ?string
+    public function getPresentation(): ?string
     {
-        return $this->description;
+        return $this->presentation;
     }
 
-    public function setDescription(string $description): self
+    public function setPresentation(string $presentation): self
     {
-        $this->description = $description;
+        $this->presentation = $presentation;
 
         return $this;
     }

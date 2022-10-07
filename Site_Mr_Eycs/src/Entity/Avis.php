@@ -18,6 +18,11 @@ class Avis
     private $id;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $note;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $commentaire;
@@ -25,46 +30,11 @@ class Avis
     /**
      * @ORM\Column(type="datetime")
      */
-    private $dateAvis;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $note;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Utilisateur::class, inversedBy="avis")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $idUtilisateurAvis;
+    private $date;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getCommentaire(): ?string
-    {
-        return $this->commentaire;
-    }
-
-    public function setCommentaire(string $commentaire): self
-    {
-        $this->commentaire = $commentaire;
-
-        return $this;
-    }
-
-    public function getDateAvis(): ?\DateTimeInterface
-    {
-        return $this->dateAvis;
-    }
-
-    public function setDateAvis(\DateTimeInterface $dateAvis): self
-    {
-        $this->dateAvis = $dateAvis;
-
-        return $this;
     }
 
     public function getNote(): ?int
@@ -79,14 +49,26 @@ class Avis
         return $this;
     }
 
-    public function getIdUtilisateurAvis(): ?Utilisateur
+    public function getCommentaire(): ?string
     {
-        return $this->idUtilisateurAvis;
+        return $this->commentaire;
     }
 
-    public function setIdUtilisateurAvis(?Utilisateur $idUtilisateurAvis): self
+    public function setCommentaire(string $commentaire): self
     {
-        $this->idUtilisateurAvis = $idUtilisateurAvis;
+        $this->commentaire = $commentaire;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
 
         return $this;
     }
