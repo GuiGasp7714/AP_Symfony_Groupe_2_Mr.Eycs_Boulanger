@@ -8,8 +8,13 @@
   visibility: hidden;
 }
 
-#createAcc {
-  margin-left: auto;
-  margin-right: auto;
+.FormPur {
+  margin-top: 150px;
+  margin-left: 40%;
+  margin-right: 40%;
+  width: 300px;
   text-align: left;
+  background-color: rgb(192, 192, 192);
+  box-shadow: 5px 5px black;
+  border-radius: 10px;
 }
