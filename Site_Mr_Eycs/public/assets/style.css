@@ -1,6 +1,10 @@
 .btn {
-  background-color: bisque;
-  border: black 1px thick;
+  background-color:rgb(120,194,173);
+  border-radius: 10px;
+}
+
+.btn:hover {
+  background-color:rgb(120, 174, 153);
   border-radius: 10px;
 }
 
@@ -9,12 +13,44 @@
 }
 
 .FormPur {
-  margin-top: 150px;
-  margin-left: 40%;
-  margin-right: 40%;
-  width: 300px;
+  padding: 10px;
+  margin-top: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
   text-align: left;
-  background-color: rgb(192, 192, 192);
-  box-shadow: 5px 5px black;
-  border-radius: 10px;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
 }
