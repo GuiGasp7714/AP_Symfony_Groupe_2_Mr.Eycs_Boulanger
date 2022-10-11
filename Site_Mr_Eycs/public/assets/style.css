@@ -1,26 +1,17 @@
-.btn {
-  background-color:rgb(120,194,173);
-  border-radius: 10px;
-}
-
-.btn:hover {
-  background-color:rgb(120, 174, 153);
-  border-radius: 10px;
-}
-
 .admin {
   visibility: hidden;
 }
 
 .FormPur {
   padding: 10px;
-  margin-top: 100px;
+  margin-top: 50px;
   margin-left: 100px;
   margin-right: 100px;
   text-align: left;
 }
 
-input[type=text], select {
+input[type="text"],
+select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -30,7 +21,7 @@ input[type=text], select {
   box-sizing: border-box;
 }
 
-input[type=password] {
+input[type="password"] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -40,9 +31,9 @@ input[type=password] {
   box-sizing: border-box;
 }
 
-input[type=submit] {
+input[type="submit"] {
   width: 100%;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -51,6 +42,26 @@ input[type=submit] {
   cursor: pointer;
 }
 
-input[type=submit]:hover {
+input[type="submit"]:hover {
   background-color: #45a049;
+}
+textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
