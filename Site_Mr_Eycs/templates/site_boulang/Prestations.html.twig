@@ -9,16 +9,29 @@
 </style>
 
 <div class="Avis">
- <h1>Avis</h1>
+ <h1>Prestations</h1>
 </div>
 <ul>
-    {% for Avis in LesAvis %}
+    {% for Prestation in LesProduits %}
         <li>
-            {{Avis.commentaire}}
+            <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+                <div class="card-header">{{Prestation.libelle}}</div>
+                <div class="card-body">
+                    <h4 class="card-title">{{Prestation.prix}}</h4>
+                    <p class="card-text">{{Prestation.description}}</p>
+                    <button></button>
+                </div>
+            </div>
         </li>
     {% endfor %}
     <li>
-        
+        {{ form_start(FormProduit) }}
+            {{ form_row(FormProduit.libelle) }}
+            {{ form_row(FormProduit.img) }}
+            {{ form_row(FormProduit.prix) }}
+            {{ form_row(FormProduit.description) }}
+            {{ form_row(FormProduit.valider) }}
+        {{ form_end(FormProduit) }}
     </li>
 </ul>
 {% endblock %}

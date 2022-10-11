@@ -5,6 +5,8 @@ namespace App\Controller;
 
 use App\Entity\Avis;
 use App\Form\AvisType;
+use App\Entity\Produit;
+use App\Form\ProduitType;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -96,12 +98,25 @@ class SiteBoulangController extends AbstractController
      */
     public function Prestations(Request $request, EntityManagerInterface $entityManager): Response
     {
-        $produit = new Produit();
+        $avis = new Avis();
+        $formAvis = $this->createForm(AvisType::class, $avis);
 
+        $formAvis->handleRequest($request);
+        if ($formAvis->isSubmitted() && $formAvis->isValid()) {
+            $entityManager->persist($avis);
+            
+            $entityManager->flush();
+            return $this->redirectToRoute('avis');
+        }
+
+        $repos = $this->getDoctrine()->getRepository(Avis::class);
+        $LesAvis = $repos->findAll();
+
+        $produit = new Produit();
         $formProduit = $this->createForm(ProduitType::class, $produit);
 
         $formProduit->handleRequest($request);
-        if ($FormProduit->isSubmitted() && $FormProduit->isValid()) {
+        if ($formProduit->isSubmitted() && $formProduit->isValid()) {
             $entityManager->persist($produit);
             
             $entityManager->flush();
@@ -113,8 +128,10 @@ class SiteBoulangController extends AbstractController
         
         return $this->render('site_boulang/Prestations.html.twig', [
             'controller_name' => 'SiteBoulangController',
+            'LesAvis'=> $LesAvis,
+            'formAvis' => $formAvis->createView(),
             'LesProduits'=> $LesProduits,
-            'FormProduit' => $FormProduit->createView()
+            'FormProduit' => $formProduit->createView()
         ]);
     }
 }
