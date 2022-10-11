@@ -75,9 +75,41 @@ class SiteBoulangController extends AbstractController
             $entityManager->flush();
             return $this->redirectToRoute('avis');
         }
+
+        $repos = $this->getDoctrine()->getRepository(Avis::class);
+        $LesAvis = $repos->findAll();
+        
         return $this->render('site_boulang/Avis.html.twig', [
             'controller_name' => 'SiteBoulangController',
+            'LesAvis'=> $LesAvis,
             'formAvis' => $formAvis->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/prestation", name="prestation")
+     */
+    public function Prestations(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $produit = new Produit();
+
+        $formProduit = $this->createForm(ProduitType::class, $produit);
+
+        $formProduit->handleRequest($request);
+        if ($FormProduit->isSubmitted() && $FormProduit->isValid()) {
+            $entityManager->persist($produit);
+            
+            $entityManager->flush();
+            return $this->redirectToRoute('prestation');
+        }
+
+        $repos = $this->getDoctrine()->getRepository(Produit::class);
+        $LesProduits = $repos->findAll();
+        
+        return $this->render('site_boulang/Prestations.html.twig', [
+            'controller_name' => 'SiteBoulangController',
+            'LesProduits'=> $LesProduits,
+            'FormProduit' => $FormProduit->createView()
         ]);
     }
 }
