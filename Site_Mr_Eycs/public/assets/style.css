@@ -8,3 +8,14 @@
 #connexion{
     background-color:navajowhite;
 }
+
+body{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+}
