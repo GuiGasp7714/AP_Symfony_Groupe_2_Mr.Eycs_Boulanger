@@ -75,6 +75,18 @@ class SiteBoulangController extends AbstractController
      */
     public function Contact(Request $request, EntityManagerInterface $entityManager): Response
     {
+        $avis = new Avis();
+
+        $formAvis = $this->createForm(AvisType::class, $avis);
+
+        $formAvis->handleRequest($request);
+        if ($formAvis->isSubmitted() && $formAvis->isValid()) {
+            $entityManager->persist($avis);
+            
+            $entityManager->flush();
+            return $this->redirectToRoute('avis');
+        }
+
         $contact = new Contact();
 
 
@@ -88,7 +100,8 @@ class SiteBoulangController extends AbstractController
         }
         return $this->render('site_boulang/contact.html.twig', [
             'controller_name' => 'SiteBoulangController',
-            'formContact' => $formContact->createView()
+            'formContact' => $formContact->createView(),
+            'formAvis' => $formAvis->createView()
         ]);
     }
 
@@ -147,9 +160,6 @@ class SiteBoulangController extends AbstractController
             return $this->redirectToRoute('avis');
         }
 
-        $repos = $this->getDoctrine()->getRepository(Avis::class);
-        $LesAvis = $repos->findAll();
-
         $produit = new Produit();
         $formProduit = $this->createForm(ProduitType::class, $produit);
 
@@ -166,7 +176,6 @@ class SiteBoulangController extends AbstractController
         
         return $this->render('site_boulang/Prestations.html.twig', [
             'controller_name' => 'SiteBoulangController',
-            'LesAvis'=> $LesAvis,
             'formAvis' => $formAvis->createView(),
             'LesProduits'=> $LesProduits,
             'FormProduit' => $formProduit->createView()
