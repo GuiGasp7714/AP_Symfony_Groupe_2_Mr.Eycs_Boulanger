@@ -27,7 +27,7 @@ Quelques outils de symfony sont nécessaires à l'utilisation du projet. Quelque
 
 Si vous souhaitez modifier le projet dans sa structure de façon plus poussée que ce qu'il n'a été fait, vous pouvez bien évidemment ajouter d'autres outils comme vous le souhaitez.
 
-Pour le reste, il vous suffit de cloner le repository du projet sur votre machine.
+Pour le reste, il vous suffit de cloner le repository du projet sur votre machine, pensez bien à prendre tous les éléments de ce Github.
 
 ## Mise en place de la base de donnée
 Pour garantir le bon fonctionement du projet, il est nécessaire de correctement installer la base de donnée.
