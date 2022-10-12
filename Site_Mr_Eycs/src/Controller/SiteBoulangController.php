@@ -43,8 +43,7 @@ class SiteBoulangController extends AbstractController
 
         return $this->render('site_boulang/index.html.twig', [
             'controller_name' => 'SiteBoulangController',
-            'formAvis' => $formAvis->createView()
-            'controller_name' => 'mon amis',
+            'formAvis' => $formAvis->createView(),
             'Presentation'=>$presentation
         ]);
     }
@@ -98,6 +97,12 @@ class SiteBoulangController extends AbstractController
      */
     public function Avis(Request $request, EntityManagerInterface $entityManager): Response
     {
+        if (!empty($_POST['idAvisSupp'])){
+            $AvisSuppr = $this->getDoctrine()->getRepository(Avis::class)->find($_POST['idAvisSupp']);
+            $entityManager->remove($AvisSuppr);
+            $entityManager->flush();
+        }
+        
         $avis = new Avis();
 
         $formAvis = $this->createForm(AvisType::class, $avis);
@@ -125,6 +130,12 @@ class SiteBoulangController extends AbstractController
      */
     public function Prestations(Request $request, EntityManagerInterface $entityManager): Response
     {
+        if (!empty($_POST['idPrestationSupp'])){
+            $PrestationSuppr = $this->getDoctrine()->getRepository(Produit::class)->find($_POST['idPrestationSupp']);
+            $entityManager->remove($PrestationSuppr);
+            $entityManager->flush();
+        }
+
         $avis = new Avis();
         $formAvis = $this->createForm(AvisType::class, $avis);
 

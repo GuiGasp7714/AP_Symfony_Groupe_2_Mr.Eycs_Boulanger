@@ -13,9 +13,16 @@
 </div>
 <ul>
     {% for Avis in LesAvis %}
-        <li>
-            {{Avis.commentaire}}
-        </li>
+        <div class="card text-white bg-danger mb-3">
+            <div class="card-body">
+                <h4 class="card-title">{{Avis.note}} / 5</h4>
+                <p class="card-text">{{Avis.commentaire}}</p>
+                <form method="POST" action="avis">
+                    <button type="submit" class="button-modif">Supprimer</button>
+                    <input type="hidden" id="idAvisSupp" name="idAvisSupp" value="{{Avis.id}}">
+                </form>
+            </div>
+        </div>
     {% endfor %}
 </ul>
 {% endblock %}

@@ -45,6 +45,7 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #45a049;
 }
+
 textarea {
   width: 100%;
   padding: 12px 20px;

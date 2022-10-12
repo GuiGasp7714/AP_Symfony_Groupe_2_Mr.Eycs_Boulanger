@@ -13,16 +13,18 @@
 </div>
 <ul>
     {% for Prestation in LesProduits %}
-        <li>
-            <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
-                <div class="card-header">{{Prestation.libelle}}</div>
-                <div class="card-body">
-                    <h4 class="card-title">{{Prestation.prix}}</h4>
-                    <p class="card-text">{{Prestation.description}}</p>
-                    <button></button>
-                </div>
+        <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+            <div class="card-header">{{Prestation.libelle}}</div>
+            <div class="card-body">
+                <h4 class="card-title">{{Prestation.prix}}</h4>
+                <img src="/assets/imgPrestations/{{Prestation.img}}">
+                <p class="card-text">{{Prestation.description}}</p>
+                <form method="POST" action="prestation">
+                    <button type="submit" class="button-modif">Supprimer</button>
+                    <input type="hidden" id="idPrestationSupp" name="idPrestationSupp" value="{{Prestation.id}}">
+                </form>
             </div>
-        </li>
+        </div>
     {% endfor %}
     <li>
         {{ form_start(FormProduit) }}

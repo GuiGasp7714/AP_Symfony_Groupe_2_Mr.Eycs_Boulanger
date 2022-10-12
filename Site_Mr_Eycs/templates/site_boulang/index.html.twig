@@ -15,7 +15,6 @@ body {
 
 {# {% if app.user.admin %} == vérification si user est un admin #}
 
-{#
 {% if app.user %}
     {% if app.user.admin %}
         <div class="mb-3">
@@ -32,16 +31,17 @@ body {
 {% else %}
 
 <div style="width:200px">
-<a href="{{path('app_login') }}"/>
-<button Type="button">Connexion</button>
-<div class="container">
-    <div style="height: 300px">
-        <div class="text-center" style="font-size:92px; font-weight:700; margin-top: 00px; color:#fff; font-family:comic sans ms;" >
-            <p style="margin-top:200px">Presentation</p>
+    <a href="{{path('app_login') }}"/>
+    <button Type="button">Connexion</button>
+    <div class="container">
+        <div style="height: 300px">
+            <div class="text-center" style="font-size:92px; font-weight:700; margin-top: 00px; color:#fff; font-family:comic sans ms;" >
+                <p style="margin-top:200px">Presentation</p>
+            </div>
         </div>
-    </div>
-    <div class="text-center" style=" font-size:25px; color:#fff; font-family:comic sans ms; ">
-        {{ Presentation.presentation }}
+        <div class="text-center" style=" font-size:25px; color:#fff; font-family:comic sans ms; ">
+            {# { Presentation.presentation } #}
+        </div>
     </div>
 </div>
 
@@ -50,7 +50,7 @@ body {
 <button Type="button">Créer un compte !</button>
 </div>
 
-{% endif %}#}
+{% endif %}
 
 
 
