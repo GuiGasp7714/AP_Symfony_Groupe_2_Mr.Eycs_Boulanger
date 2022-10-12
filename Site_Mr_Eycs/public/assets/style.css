@@ -65,3 +65,15 @@ button {
   border-radius: 4px;
   cursor: pointer;
 }
+
+
+body{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+}
