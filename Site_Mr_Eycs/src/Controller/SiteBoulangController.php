@@ -39,7 +39,7 @@ class SiteBoulangController extends AbstractController
 
         return $this->render('site_boulang/index.html.twig', [
             'controller_name' => 'SiteBoulangController',
-            'formAvis' => $formAvis->createView()
+            'formAvis' => $formAvis->createView(),
             'controller_name' => 'mon amis',
             'Presentation'=>$presentation
         ]);
