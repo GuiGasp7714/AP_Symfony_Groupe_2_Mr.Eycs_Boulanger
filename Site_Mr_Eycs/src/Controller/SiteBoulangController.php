@@ -48,26 +48,7 @@ class SiteBoulangController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/connexion", name="connexion")
-     */
-    public function Connexion(Request $request, EntityManagerInterface $entityManager): Response
-    {
-        $avis = new Avis();
-
-        $formAvis = $this->createForm(AvisType::class, $avis);
-        $formAvis->handleRequest($request);
-
-        if ($formAvis->isSubmitted() && $formAvis->isValid()) {
-            $entityManager->persist($avis);
-            $entityManager->flush();
-            return $this->redirectToRoute('avis');
-        }
-        return $this->render('site_boulang/Connexion.html.twig', [
-            'controller_name' => 'SiteBoulangController',
-            'formAvis' => $formAvis->createView()
-        ]);
-    }
+    
 
 
     /**

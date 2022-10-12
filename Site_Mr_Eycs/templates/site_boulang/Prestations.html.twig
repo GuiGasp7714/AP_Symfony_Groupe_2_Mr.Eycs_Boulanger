@@ -17,15 +17,21 @@
             <div class="card-header">{{Prestation.libelle}}</div>
             <div class="card-body">
                 <h4 class="card-title">{{Prestation.prix}}</h4>
-                <img src="/assets/imgPrestations/{{Prestation.img}}">
+                <div class="photo"> <img src="/assets/imgPrestations/{{Prestation.img}}"> </div>
                 <p class="card-text">{{Prestation.description}}</p>
+                {% if app.user %}
+                    {% if app.user.admin %}
                 <form method="POST" action="prestation">
                     <button type="submit" class="button-modif">Supprimer</button>
                     <input type="hidden" id="idPrestationSupp" name="idPrestationSupp" value="{{Prestation.id}}">
                 </form>
+                    {% endif %}
+                {% endif %}
             </div>
         </div>
     {% endfor %}
+    {% if app.user %}
+                    {% if app.user.admin %}
     <li>
         {{ form_start(FormProduit) }}
             {{ form_row(FormProduit.libelle) }}
@@ -35,5 +41,7 @@
             {{ form_row(FormProduit.valider) }}
         {{ form_end(FormProduit) }}
     </li>
+                        {% endif %}
+                {% endif %}
 </ul>
 {% endblock %}

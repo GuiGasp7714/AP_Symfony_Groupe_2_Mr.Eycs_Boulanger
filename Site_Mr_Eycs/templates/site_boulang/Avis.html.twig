@@ -17,10 +17,14 @@
             <div class="card-body">
                 <h4 class="card-title">{{Avis.note}} / 5</h4>
                 <p class="card-text">{{Avis.commentaire}}</p>
+                   {% if app.user %}
+                    {% if app.user.admin %}
                 <form method="POST" action="avis">
                     <button type="submit" class="button-modif">Supprimer</button>
                     <input type="hidden" id="idAvisSupp" name="idAvisSupp" value="{{Avis.id}}">
                 </form>
+             {% endif %}
+                {% endif %}
             </div>
         </div>
     {% endfor %}

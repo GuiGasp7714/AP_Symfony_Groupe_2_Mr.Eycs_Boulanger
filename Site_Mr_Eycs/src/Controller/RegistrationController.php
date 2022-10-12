@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Security\UserAuthenticator;
+use App\Entity\Avis;
+use App\Form\AvisType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,6 +25,17 @@ class RegistrationController extends AbstractController
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
+
+        $avis = new Avis();
+        $formAvis = $this->createForm(AvisType::class, $avis);
+
+        $formAvis->handleRequest($request);
+        if ($formAvis->isSubmitted() && $formAvis->isValid()) {
+            $entityManager->persist($avis);
+            
+            $entityManager->flush();
+            return $this->redirectToRoute('avis');
+        }
 
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
@@ -46,6 +59,9 @@ class RegistrationController extends AbstractController
 
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
+            'formAvis' => $formAvis->createView(),
         ]);
     }
+
+    
 }
